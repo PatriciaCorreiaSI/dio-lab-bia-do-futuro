@@ -38,5 +38,21 @@
     "rentabilidade": "Variável",
     "aporte_minimo": 100.00,
     "indicado_para": "Perfil arrojado com foco no longo prazo"
-  }
+  },
+  {
+    "nome": "Tesouro Reserva",
+    "categoria": "renda_fixa",
+    "risco": "baixo",
+    "rentabilidade": "100% da taxa Selic com Resgate e Aplicação 24/7",
+    "aporte_minimo": 1.00,
+    "indicado_para": "Perfil conservador ou iniciante que deseja construir ou manter uma reserva de emergência com liquidez imediata e sem oscilações diárias"
+  },
+   {
+    "nome": "Tesouro RendA+",
+    "categoria": "renda_fixa",
+    "risco": "baixo",
+    "rentabilidade": "IPCA + taxa de juros real (definida no momento da compra)",
+    "aporte_minimo": 30.00,
+    "indicado_para": " Investidores focados no longo prazo, especialmente trabalhadores e autônomos que desejam construir uma renda complementar para a aposentadoria com segurança."
+  },
 ]
