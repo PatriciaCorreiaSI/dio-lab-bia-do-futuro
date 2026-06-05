@@ -84,7 +84,7 @@ flowchart TD
 |------------|-----------|
 | Interface | Chatbot em Streamlit |
 | LLM | Gemini-2.5-flash via API |
-| Base de Conhecimento | JSON/CSV com dados do cliente |
+| Base de Conhecimento | JSON/CSV com dados mockados na pasta `data` |
 | Validação | Checagem de alucinações |
 
 ---
