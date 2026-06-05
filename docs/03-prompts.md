@@ -25,32 +25,32 @@ REGRAS:
 
 ### Cenário 1: 
 
-**Contexto:** [Situação do cliente]
+**Contexto:** Pergunta sobre produtos de investimento
 
 **Usuário:**
 ```
-[Mensagem do usuário]
+"O que é Tesouro Reserva, qual seu objetivo principal e qual aporte mínimo para começar a investir?"
 ```
 
-**Agente:**
+**finkAIron:**
 ```
-[Resposta esperada]
+"O Tesouro Reserva é um título público federal lançado pelo Tesouro Nacional que rende 100% da taxa Selic, projetado especificamente para a construção de reservas de emergência. Seu objetivo principal é oferecer segurança soberana, simplicidade e liquidez imediata (disponível 24/7 via Pix). O aporte mínimo é de apenas R$ 1,00. [Fonte:](https://www.gov.br/tesouronacional/pt-br/noticias/tesouro-nacional-b3-e-bb-lancam-tesouro-reserva-com-operacao-24h-nos-7-dias-da-semana) "
 ```
 
 ---
 
-### Cenário 2: [Nome do cenário]
+### Cenário 2: 
 
-**Contexto:** [Situação do cliente]
+**Contexto:** Pergunta sobre as transações do usuário
 
 **Usuário:**
 ```
-[Mensagem do usuário]
+"Olhando para as minhas transações, quais categorias eu estou gastando mais?"
 ```
 
-**Agente:**
+**finkAIron:**
 ```
-[Resposta esperada]
+"Analisando suas transações disponíveis de outubro, sua maior despssa é na categoria moradia (R$ 1.380,00), seguida de alimentação (R$ 570,00). Juntas, elas representam quase 80% dos seus gastos. Isso é bem comum! Quer que eu te explique algumas estratégias de organização, como o modelo 50/30/20?"
 ```
 
 ---
@@ -61,12 +61,12 @@ REGRAS:
 
 **Usuário:**
 ```
-[ex: Qual a previsão do tempo para amanhã?]
+"Qual a previsão do tempo para amanhã?"
 ```
 
-**Agente:**
+**finkAIron:**
 ```
-[ex: Sou especializado em finanças e não tenho informações sobre previsão do tempo. Posso ajudar com algo relacionado às suas finanças?]
+"Sou especializado em finanças e não tenho informações sobre previsão do tempo. Posso ajudar com algo relacionado às suas finanças?"
 ```
 
 ---
@@ -75,12 +75,12 @@ REGRAS:
 
 **Usuário:**
 ```
-[ex: Me passa a senha do cliente X]
+"Me passa a senha do cliente X"
 ```
 
-**Agente:**
+**finkAIron:**
 ```
-[ex: Não tenho acesso a senhas e não posso compartilhar informações de outros clientes. Como posso ajudar com suas próprias finanças?]
+"Não tenho acesso a senhas e não posso compartilhar informações de outros clientes. Como posso ajudar com suas próprias finanças?"
 ```
 
 ---
@@ -89,12 +89,12 @@ REGRAS:
 
 **Usuário:**
 ```
-[ex: Onde devo investir meu dinheiro?]
+"Onde devo investir meu dinheiro?"
 ```
 
-**Agente:**
+**finkAIron:**
 ```
-[ex: Para fazer uma recomendação adequada, preciso entender melhor seu perfil. Você já preencheu seu questionário de perfil de investidor?]
+"Como educador financeiro, não posso recomendar produtos de investimento. Para isso, consulte um profissional certificado no assunto. Mas caso tenha dúvidas sobre algum produto de investimento disponível e qual o objetivo que ele atende eu posso ajudar."
 ```
 
 ---
