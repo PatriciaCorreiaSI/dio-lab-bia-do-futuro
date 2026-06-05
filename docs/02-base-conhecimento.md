@@ -4,10 +4,10 @@
 
 | Arquivo | Formato | Para que serve no finkAIron? |
 |---------|---------|---------------------|
-| `historico_atendimento.csv` | CSV | Conhecer melhor o usuario a partir de seu histórico |
-| `perfil_investidor.json` | JSON | Personalizar recomendações |
-| `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
+| `historico_atendimento.csv` | CSV | Conhecer melhor o usuario a partir de seu histórico de interações anteriores. |
+| `perfil_investidor.json` | JSON | Personalizar as explicações a partir do perfil do usuário. |
+| `produtos_financeiros.json` | JSON | Conhecer os produtos de investimento disponíveis adequados ao perfil do cliente para explicar suas vantagens e riscos.|
+| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente para personalizar as respostas ao usuário. |
 
 ---
 
