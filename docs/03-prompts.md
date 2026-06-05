@@ -119,7 +119,8 @@ Mais sobre Few-Shot Prompts: [Few-Shot vs Zero-Shot](https://cursos.alura.com.br
 
 ## Observações e Aprendizados
 
-> Registre aqui ajustes que você fez nos prompts e por quê.
+- O Gemini conseguiu entender o conceito do agente, mas foi um tanto prolixo. Quando perguntado quem era ele, soube sintetizar o perfil do agente, mas não citou seu nome.
+- O Claude conseguiu entender o conceito do agente e se entitulou como finkAIron e deu uma resposta mais sintetizada. Quando perguntado quem era ele, respondeu corretamente remetendo-se ao nome e perfil do finkAIron.
+- o GPT também conseguiu dar uma resposta siscunta se passando pel agente, ma sem citar seu nome. Quando perguntado quem era ele, não soube remeter-se ao agente, mas sim à prória LLM GPT da OpenIA.
 
-- [Observação 1]
-- [Observação 2]
+  Portanto, nos testes a LLM que melhor se adequou ao perfil do agente criado foi o Claude.
