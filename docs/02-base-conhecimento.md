@@ -13,24 +13,45 @@
 
 ## Adaptações nos Dados
 
-> Você modificou ou expandiu os dados mockados? Descreva aqui.
-
-[Sua descrição aqui]
+Inclui dos produtos de investimento de renda fixa: Tesouro Reserva e Tesouro RendA+ que são dois produtos do Tesouro Direto muito vantajosos e não constavam na lista.
 
 ---
 
 ## Estratégia de Integração
 
 ### Como os dados são carregados?
-> Descreva como seu agente acessa a base de conhecimento.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Inserir os dados diretamente no prompt ou carregar os arquivos via código, com uso de python, conforme o script abaixo: 
+
+
+```python
+# Utilizando Python para carregar e ler os arquivos
+
+import pandas as pd
+import json
+
+historico_atendimento = pd.read_csv('data/historico_atendimento.csv')
+transacoes_cliente = pd.read_csv('data/transacoes.csv')
+
+with open('data/perfil_investidor.json', 'r', encoding='utf-8') as f:
+   perfil = json.load(f)
+
+with open('data/produtos_financeiros.json', 'r', encoding='utf-8') as f:
+   produtos = json.load(f)
+
+```
 
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
-[Sua descrição aqui]
+```text
+DADOS DO CLIENTE:
+PERFIL DO CLIENTE:
+TRANSACOES DO CLIENTE:
+PRODUTOS DISPONIVEIS NO MERCADO FINANCEIRO:
+  PARA QUAL PERFIL ESSE PRODUTO SE APLICA:
 
+```
 ---
 
 ## Exemplo de Contexto Montado
