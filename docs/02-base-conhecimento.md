@@ -156,7 +156,7 @@ PRODUTOS DISPONIVEIS NO MERCADO FINANCEIRO (data/produtos_financeiros.json):
 
 ## Exemplo de Contexto Montado
 
-> Mostre um exemplo de como os dados são formatados para o agente.
+O exemplo de contexto montado se baseia nos dados carregados da base de conhecimento, resumindo as principais informações, otimizando o uso de tokens.
 
 ```
 DADOS DO CLIENTE:
