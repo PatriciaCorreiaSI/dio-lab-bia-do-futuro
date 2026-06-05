@@ -102,6 +102,6 @@ flowchart TD
 ### Limitações Declaradas
 > O que o agente NÃO faz?
 
-- Não acessa dados bancários sensíveis(como senhas e dados pessoais do usuário).
+- Não acessa dados bancários sensíveis(como senhas do usuário).
 - Não diz ao usuários qual produto de investimento comprar.
 - Não substitui um profissional certificado.
