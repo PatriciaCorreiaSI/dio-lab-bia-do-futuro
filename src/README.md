@@ -109,6 +109,9 @@ O app abre no navegador. É só digitar a dúvida sobre finanças/investimentos.
 
 ---
 
+## 📸 Evidências
+![Tela do finkAIron rodando no com streamlit](https://github.com/PatriciaCorreiaSI/dio-lab-bia-do-futuro/blob/main/assets/captura%20de%20tela%20finkAIron.png)
+
 ## 🔐 Segurança
 
 A chave da API fica no arquivo `.env`, que é ignorado pelo Git (via `.gitignore`) e
