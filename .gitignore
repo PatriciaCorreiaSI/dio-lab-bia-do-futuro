@@ -1,0 +1,27 @@
+# ===== Segredos / variáveis de ambiente =====
+.env
+.env.*
+!.env.example
+*.key
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ===== Ambientes virtuais =====
+.venv/
+venv/
+env/
+
+# ===== Streamlit =====
+.streamlit/secrets.toml
+
+# ===== IDE / Sistema operacional =====
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
