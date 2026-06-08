@@ -1,115 +1,149 @@
-# 🪙 finkAIron — Agente Financeiro Inteligente
+# 🤖 Agente Financeiro Inteligente com IA Generativa
 
-Chatbot de educação financeira e investimentos construído com **Streamlit** (interface)
-e a **API do Google Gemini** como modelo de linguagem (LLM).
+## Contexto
 
-O agente responde dúvidas do usuário usando, como contexto, o perfil do cliente,
-suas transações, o histórico de atendimentos e os produtos financeiros disponíveis.
+Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
 
----
+- **Antecipar necessidades** ao invés de apenas responder perguntas
+- **Personalizar** sugestões com base no contexto de cada cliente
+- **Cocriar soluções** financeiras de forma consultiva
+- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
 
-## 🤔 Por que Gemini, e não Ollama local?
-
-O desafio original da **DIO** sugere usar o **Ollama** para rodar o modelo localmente.
-Optei por uma abordagem **na nuvem com o Google Gemini** por três motivos principais:
-
-- **☁️ Sem peso na máquina local:** rodar um LLM com Ollama consome bastante CPU,
-  memória RAM (e idealmente GPU) do computador. Com o Gemini, todo o processamento
-  acontece nos servidores do Google — a máquina do usuário só envia a pergunta e
-  recebe a resposta.
-
-- **💪 Mais robustez no modelo:** sem a limitação do hardware local, é possível usar
-  modelos significativamente maiores e mais capazes do que os que caberiam de forma
-  confortável em uma máquina comum, resultando em respostas de melhor qualidade.
-
-- **🆓 Cota gratuita generosa e acessível:** entre as LLMs em nuvem mais conhecidas, o
-  Gemini oferece, em geral, uma das camadas gratuitas mais amplas e fáceis de obter —
-  basta uma conta Google e uma chave gerada no AI Studio, sem cartão de crédito. Isso
-  torna o projeto reproduzível por qualquer pessoa, sem custo de infraestrutura.
-
-> Em resumo: a nuvem troca a dependência de um hardware potente por uma dependência de
-> conexão com a internet — uma troca vantajosa para um projeto de estudo que deve ser
-> leve de rodar e fácil de reproduzir.
+> [!TIP]
+> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
 
 ---
 
-## 🧠 Como o Gemini é usado como LLM
+## O Que Você Deve Entregar
 
-A integração com o Gemini é feita pelo SDK oficial **`google-genai`** e segue 3 etapas no
-arquivo [`src/app.py`](src/app.py):
+### 1. Documentação do Agente
 
-1. **Conexão (cliente):** a chave da API é lida de uma variável de ambiente e usada para
-   criar o cliente do Gemini.
-   ```python
-   client = genai.Client(api_key=os.environ['API_GEMINI_KEY'])
-   ```
+Defina **o que** seu agente faz e **como** ele funciona:
 
-2. **Configuração do modelo (chat com memória + system prompt):** criamos uma sessão de chat
-   já com as instruções de sistema (papel do agente + contexto do cliente). Assim, essas
-   instruções são enviadas **uma única vez** e valem para toda a conversa.
-   ```python
-   chat = client.chats.create(
-       model='gemini-2.0-flash-lite',
-       config=genai.types.GenerateContentConfig(
-           system_instruction=SYSTEM_PROMPT + contexto
-       )
-   )
-   ```
+- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
+- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
+- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
+- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
 
-3. **Conversa:** cada pergunta do usuário é enviada com `send_message`, e o modelo responde
-   levando em conta o system prompt e o histórico da conversa.
-   ```python
-   r = chat.send_message(msg)
-   return r.text
-   ```
-
-> 💡 Modelos alternativos (caso queira trocar): `gemini-2.5-flash`, `gemini-2.0-flash`,
-> `gemini-1.5-flash`. Basta alterar o parâmetro `model=` na criação do chat.
+📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
 
 ---
 
-## 🚀 Como rodar o projeto
+### 2. Base de Conhecimento
 
-### 1. Instalar as dependências
-```bash
-pip install -r requirements.txt
+Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+
+| Arquivo | Formato | Descrição |
+|---------|---------|-----------|
+| `transacoes.csv` | CSV | Histórico de transações do cliente |
+| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
+| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
+| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+
+Você pode adaptar ou expandir esses dados conforme seu caso de uso.
+
+📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+
+---
+
+### 3. Prompts do Agente
+
+Documente os prompts que definem o comportamento do seu agente:
+
+- **System Prompt:** Instruções gerais de comportamento e restrições
+- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
+- **Tratamento de Edge Cases:** Como o agente lida com situações limite
+
+📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
+
+---
+
+### 4. Aplicação Funcional
+
+Desenvolva um **protótipo funcional** do seu agente:
+
+- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
+- Integração com LLM (via API ou modelo local)
+- Conexão com a base de conhecimento
+
+📁 **Pasta:** [`src/`](./src/)
+
+---
+
+### 5. Avaliação e Métricas
+
+Descreva como você avalia a qualidade do seu agente:
+
+**Métricas Sugeridas:**
+- Precisão/assertividade das respostas
+- Taxa de respostas seguras (sem alucinações)
+- Coerência com o perfil do cliente
+
+📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
+
+---
+
+### 6. Pitch
+
+Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
+
+- Qual problema seu agente resolve?
+- Como ele funciona na prática?
+- Por que essa solução é inovadora?
+
+📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
+
+---
+
+## Ferramentas Sugeridas
+
+Todas as ferramentas abaixo possuem versões gratuitas:
+
+| Categoria | Ferramentas |
+|-----------|-------------|
+| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
+| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
+| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
+| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+
+---
+
+## Estrutura do Repositório
+
+```
+📁 lab-agente-financeiro/
+│
+├── 📄 README.md
+│
+├── 📁 data/                          # Dados mockados para o agente
+│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
+│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
+│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
+│   └── transacoes.csv                # Histórico de transações (CSV)
+│
+├── 📁 docs/                          # Documentação do projeto
+│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
+│   ├── 02-base-conhecimento.md       # Estratégia de dados
+│   ├── 03-prompts.md                 # Engenharia de prompts
+│   ├── 04-metricas.md                # Avaliação e métricas
+│   └── 05-pitch.md                   # Roteiro do pitch
+│
+├── 📁 src/                           # Código da aplicação
+│   └── app.py                        # (exemplo de estrutura)
+│
+├── 📁 assets/                        # Imagens e diagramas
+│   └── ...
+│
+└── 📁 examples/                      # Referências e exemplos
+    └── README.md
 ```
 
-### 2. Configurar a chave da API
-- Gere uma chave gratuita no [Google AI Studio](https://aistudio.google.com/apikey).
-- Copie o arquivo `.env.example` para um novo arquivo chamado `.env`.
-- Cole a sua chave nesse `.env`:
-  ```
-  API_GEMINI_KEY=sua_chave_aqui
-  ```
-
-### 3. Executar o app
-```bash
-streamlit run src/app.py
-```
-O app abre no navegador. É só digitar a dúvida sobre finanças/investimentos.
-
 ---
 
-## 📁 Estrutura
+## Dicas Finais
 
-```
-.
-├── src/
-│   └── app.py                 # Código principal (interface + integração Gemini)
-├── data/                      # Dados de contexto do cliente
-│   ├── perfil_investidor.json
-│   ├── transacoes.csv
-│   ├── historico_atendimento.csv
-│   └── produtos_financeiros.json
-├── .env.example               # Modelo de configuração da chave (copie para .env)
-├── requirements.txt           # Dependências do projeto
-└── .gitignore                 # Protege o .env e arquivos temporários
-```
-
----
-
-## 🔐 Segurança
-
-A chave da API fica no arquivo `.env`, que é ignorado pelo Git (via `.gitignore`) e
-**nunca** é enviado ao repositório. Cada pessoa que rodar o projeto usa a sua própria chave.
+1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
+2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
+3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
+4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
+5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
