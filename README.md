@@ -1,149 +1,189 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🪙 finkAIron — Agente Financeiro Inteligente com IA Generativa
 
-## Contexto
+> Chatbot de **educação financeira e investimentos** que usa IA Generativa para
+> ensinar, desmistificar o mercado financeiro e personalizar explicações com base
+> no perfil, nas transações e no histórico de atendimento de cada cliente.
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
-
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+Construído com **Streamlit** (interface) + **Google Gemini** (LLM via API), o projeto
+nasceu do desafio **[Bia do Futuro](https://github.com/PatriciaCorreiaSI/dio-lab-bia-do-futuro)**
+da **DIO** em parceria com o **Bradesco** e foi desenvolvido do conceito ao protótipo funcional.
 
 ---
 
-## O Que Você Deve Entregar
+## 💡 O nome
 
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+O nome escolhido **finkAIron** une o prefixo **fin**anceiro ao conceito grego de **Kairós** (o momento
+oportuno) com a terminação tecnológica **-ron**. O destaque em **AI** evidencia um agente
+guiado por inteligência artificial — focado em **educar e investir na hora exata**.
 
 ---
 
-### 2. Base de Conhecimento
+## 🎯 O que o agente resolve
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+Muitas pessoas mantêm o dinheiro parado na poupança ou caem em armadilhas financeiras
+(consórcios, títulos de capitalização) por falta de conhecimento prático. O finkAIron atua
+como **consultor e educador**, ajudando o usuário a:
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+- **Desmistificar o mercado** — entender a diferença entre Renda Fixa e Renda Variável;
+- **Construir uma base sólida** — montar uma reserva de emergência com liquidez e segurança;
+- **Planejar curto e longo prazo** — compreender juros compostos e alinhar prazos a objetivos;
+- **Analisar risco** — conhecer mecanismos como o FGC e identificar o próprio perfil de investidor.
 
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+> 🔎 **Caso de uso, persona e arquitetura completos:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
 
 ---
 
-### 3. Prompts do Agente
+## 🧩 Como funciona
 
-Documente os prompts que definem o comportamento do seu agente:
+O agente recebe a pergunta do usuário e responde usando, como **contexto**, os dados
+mockados de um cliente fictício (perfil, transações, histórico e produtos disponíveis).
+Esse contexto é injetado no *system prompt* uma única vez, ao criar a sessão de chat com o
+Gemini — assim cada resposta já considera o perfil do cliente e o histórico da conversa.
 
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
+```mermaid
+flowchart TD
+    A[Cliente] -->|pergunta| B[Interface Streamlit]
+    B --> C[LLM - Google Gemini]
+    D[Base de Conhecimento<br/>JSON + CSV] --> C
+    SP[System Prompt + Regras<br/>anti-alucinação] --> C
+    C --> E[Resposta educativa]
+```
 
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
+| Componente | Implementação |
+|------------|---------------|
+| **Interface** | Chatbot em Streamlit (`st.chat_input` / `st.chat_message`) |
+| **LLM** | Google Gemini via SDK `google-genai` (modelo padrão: `gemini-2.0-flash-lite`) |
+| **Base de Conhecimento** | Arquivos JSON/CSV mockados na pasta [`data/`](./data/) |
+| **Segurança** | Regras anti-alucinação no system prompt + chave da API protegida via `.env` |
 
----
+> 🔎 **Detalhes da integração com o Gemini e por que nuvem em vez de Ollama local:** [`src/README.md`](./src/README.md)
 
-### 4. Aplicação Funcional
+### ☁️ Por que Gemini, e não Ollama local?
 
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
+O desafio original sugere rodar o modelo localmente com Ollama. Optei pela nuvem com o
+Gemini por três motivos: 
+- Não pesa na máquina do usuário (todo o processamento fica
+nos servidores do Google);
+- Permite usar modelos mais robustos sem limitação de
+hardware;
+- A camada gratuita é generosa e fácil de obter. Basta uma conta Google,
+sem cartão de crédito, tornando o projeto reproduzível por qualquer pessoa.
 
 ---
 
-## Ferramentas Sugeridas
+## 🚀 Como rodar
 
-Todas as ferramentas abaixo possuem versões gratuitas:
+> Pré-requisito: Python 3.10+ e uma chave gratuita do Gemini ([Google AI Studio](https://aistudio.google.com/apikey)).
 
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+```bash
+# 1. Instalar as dependências
+pip install -r requirements.txt
+
+# 2. Configurar a chave da API
+#    Copie .env.example para .env e cole a sua chave:
+#    API_GEMINI_KEY=sua_chave_aqui
+
+# 3. Executar o app (abre no navegador)
+streamlit run src/app.py
+```
+
+🔐 O arquivo `.env` (com a chave real) é ignorado pelo Git e **nunca** vai para o repositório.
 
 ---
 
-## Estrutura do Repositório
+## 🛡️ Segurança e anti-alucinação
+
+O finkAIron é um **educador**, não um consultor de investimentos. Por isso, o system prompt
+impõe regras explícitas:
+
+- Sempre baseia as respostas nos dados fornecidos e **nunca inventa** informações financeiras;
+- **Não recomenda** qual produto comprar — apenas explica vantagens, riscos e o perfil indicado;
+- Quando não sabe, **admite** e oferece alternativas;
+- Não acessa dados sensíveis (senhas) e **não substitui** um profissional certificado.
+
+---
+
+## 📚 Tecnologias
+
+| | |
+|---|---|
+| **Linguagem** | Python |
+| **Interface** | [Streamlit](https://streamlit.io/) |
+| **LLM** | [Google Gemini](https://aistudio.google.com/) (`google-genai`) |
+| **Dados** | [pandas](https://pandas.pydata.org/) (CSV) + `json` |
+| **Configuração** | [python-dotenv](https://pypi.org/project/python-dotenv/) |
+
+Versões exatas em [`requirements.txt`](./requirements.txt).
+
+---
+
+## 🗂️ Estrutura do repositório
 
 ```
-📁 lab-agente-financeiro/
+agente-financeiro-finkairon/
 │
-├── 📄 README.md
+├── README.md                         # Este arquivo — visão geral do projeto
+├── requirements.txt                  # Dependências (Streamlit, google-genai, pandas...)
+├── .env.example                      # Modelo da chave da API (copie para .env)
+├── .gitignore                        # Protege o .env e arquivos temporários
 │
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+├── src/                              # Código da aplicação
+│   ├── app.py                        # App principal: interface + integração Gemini
+│   └── README.md                     # Como o Gemini é usado + guia de execução detalhado
 │
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
+├── data/                             # Base de conhecimento (cliente fictício)
+│   ├── perfil_investidor.json        # Perfil, metas e objetivos do cliente
+│   ├── transacoes.csv                # Histórico de transações
+│   ├── historico_atendimento.csv     # Atendimentos anteriores
+│   └── produtos_financeiros.json     # Produtos de investimento disponíveis
+│
+├── docs/                             # Documentação do agente
+│   ├── 01-documentacao-agente.md     # Caso de uso, persona e arquitetura
+│   ├── 02-base-conhecimento.md       # Estratégia de dados e montagem do contexto
+│   ├── 03-prompts.md                 # System prompt, exemplos e edge cases
+│   ├── 04-metricas.md                # Avaliação e métricas de qualidade
 │   └── 05-pitch.md                   # Roteiro do pitch
 │
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
+├── examples/                         # Referências de implementação por etapa
+│   └── README.md
 │
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+└── assets/                           # Recursos visuais (diagramas, screenshots)
+    ├── README.md
+    └── RoteiroLab.md
 ```
 
 ---
 
-## Dicas Finais
+## 🗃️ Base de conhecimento
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+O agente é alimentado por dados mockados de um cliente fictício (**João Silva**, perfil
+moderado), inseridos no contexto do modelo:
+
+| Arquivo | Formato | Para que serve |
+|---------|---------|----------------|
+| `perfil_investidor.json` | JSON | Personalizar as explicações conforme o perfil e as metas do usuário |
+| `transacoes.csv` | CSV | Analisar o padrão de gastos para contextualizar as respostas |
+| `historico_atendimento.csv` | CSV | Conhecer o usuário a partir de interações anteriores |
+| `produtos_financeiros.json` | JSON | Explicar vantagens, riscos e perfil indicado de cada produto |
+
+> 🔎 **Estratégia de carregamento e exemplo de contexto:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
+
+---
+
+## 📊 Avaliação
+
+A qualidade do agente é avaliada por três métricas principais — **assertividade**,
+**segurança** (evitar alucinações) e **coerência** com o perfil do cliente —, validadas
+por cenários de teste estruturados e feedback de usuários reais.
+
+Durante os testes comparativos entre LLMs, o **Claude** foi o que melhor incorporou a
+persona do finkAIron; o projeto adotou o **Gemini** pela camada gratuita mais acessível.
+
+> 🔎 **Métricas e cenários de teste:** [`docs/04-metricas.md`](./docs/04-metricas.md)
+
+---
+
+## 📝 Sobre o projeto
+
+Desenvolvido por **[Patrícia Correia](https://github.com/PatriciaCorreiaSI)** a partir do
+desafio **Bia do Futuro** da [DIO](https://www.dio.me/), do conceito ao protótipo funcional.
