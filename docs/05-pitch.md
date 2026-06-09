@@ -55,6 +55,4 @@ Gravação de tela do app rodando, com três perguntas que mostram os pilares da
 
 ## Link do Vídeo
 
-> Colar aqui o link do pitch (YouTube, Loom, Google Drive, etc.)
-
-[Link do vídeo]
+[Pitch](https://github.com/PatriciaCorreiaSI/dio-lab-bia-do-futuro/blob/main/assets/Pitch.mp4)
