@@ -8,6 +8,8 @@ Construído com **Streamlit** (interface) + **Google Gemini** (LLM via API), o p
 nasceu do desafio **[Bia do Futuro](https://github.com/PatriciaCorreiaSI/dio-lab-bia-do-futuro)**
 da **DIO** em parceria com o **Bradesco** e foi desenvolvido do conceito ao protótipo funcional.
 
+<img align="center" src="./assets/captura de tela finkAIron.png" alt="finkAIron" />
+
 ---
 
 ## 💡 O nome
