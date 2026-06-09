@@ -5,6 +5,7 @@ e a **API do Google Gemini** como modelo de linguagem (LLM).
 
 O agente responde dúvidas do usuário usando, como contexto, o perfil do cliente,
 suas transações, o histórico de atendimentos e os produtos financeiros disponíveis.
+![Tela do finkAIron rodando no com streamlit](https://github.com/PatriciaCorreiaSI/dio-lab-bia-do-futuro/blob/main/assets/captura%20de%20tela%20finkAIron.png)
 
 ---
 
@@ -108,6 +109,10 @@ O app abre no navegador. É só digitar a dúvida sobre finanças/investimentos.
 ```
 
 ---
+
+## 📸 Evidências
+![Interagindo com o Agente](https://github.com/PatriciaCorreiaSI/dio-lab-bia-do-futuro/blob/main/assets/Intera%C3%A7%C3%A3o%20com%20finkAIron.png)
+
 
 ## 🔐 Segurança
 
