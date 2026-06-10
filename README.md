@@ -26,10 +26,10 @@ Muitas pessoas mantêm o dinheiro parado na poupança ou caem em armadilhas fina
 (consórcios, títulos de capitalização) por falta de conhecimento prático. O finkAIron atua
 como **consultor e educador**, ajudando o usuário a:
 
-- **Desmistificar o mercado** — entender a diferença entre Renda Fixa e Renda Variável;
-- **Construir uma base sólida** — montar uma reserva de emergência com liquidez e segurança;
-- **Planejar curto e longo prazo** — compreender juros compostos e alinhar prazos a objetivos;
-- **Analisar risco** — conhecer mecanismos como o FGC e identificar o próprio perfil de investidor.
+- **Desmistificar o mercado**: entender a diferença entre Renda Fixa e Renda Variável;
+- **Construir uma base sólida**: montar uma reserva de emergência com liquidez e segurança;
+- **Planejar curto e longo prazo**: compreender juros compostos e alinhar prazos a objetivos;
+- **Analisar risco**: conhecer mecanismos como o FGC e identificar o próprio perfil de investidor.
 
 > 🔎 **Caso de uso, persona e arquitetura completos:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
 
@@ -99,7 +99,7 @@ O finkAIron é um **educador**, não um consultor de investimentos. Por isso, o 
 impõe regras explícitas:
 
 - Sempre baseia as respostas nos dados fornecidos e **nunca inventa** informações financeiras;
-- **Não recomenda** qual produto comprar — apenas explica vantagens, riscos e o perfil indicado;
+- **Não recomenda** qual produto comprar, apenas explica vantagens, riscos e o perfil indicado;
 - Quando não sabe, **admite** e oferece alternativas;
 - Não acessa dados sensíveis (senhas) e **não substitui** um profissional certificado.
 
