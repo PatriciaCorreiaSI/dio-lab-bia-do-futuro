@@ -1,4 +1,4 @@
-# 🪙 finkAIron — Agente Financeiro Inteligente com IA Generativa
+# 🪙 finkAIron: Agente Financeiro Inteligente com IA Generativa
 
 > Chatbot de **educação financeira e investimentos** que usa IA Generativa para
 > ensinar, desmistificar o mercado financeiro e personalizar explicações com base
@@ -174,8 +174,8 @@ moderado), inseridos no contexto do modelo:
 
 ## 📊 Avaliação
 
-A qualidade do agente é avaliada por três métricas principais — **assertividade**,
-**segurança** (evitar alucinações) e **coerência** com o perfil do cliente —, validadas
+A qualidade do agente é avaliada por três métricas principais: **assertividade**,
+**segurança** (evitar alucinações) e **coerência** com o perfil do cliente, validadas
 por cenários de teste estruturados e feedback de usuários reais.
 
 Durante os testes comparativos entre LLMs, o **Claude** foi o que melhor incorporou a
