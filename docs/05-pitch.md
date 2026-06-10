@@ -1,13 +1,10 @@
-# Pitch (3 minutos)
+# Pitch (4 minutos)
 
-> [!TIP]
-> Usar alguns slides pra apoiar o Pitch e mostrar a solução na prática.
-
-## Gancho (0:00 – 0:15)
+## 🪝 Gancho (0:00 – 0:15)
 
 > "Você sabia que milhões de brasileiros deixam o dinheiro parado na poupança ou caem em armadilhas como consórcios e títulos de capitalização? Não por falta de dinheiro — mas por falta de **conhecimento**. E é exatamente aí que entra o finkAIron."
 
-## Roteiro Sugerido
+## 🎥 Roteiro Sugerido
 
 ### 1. O Problema (0:15 – 0:45)
 > Qual dor do cliente você resolve?
@@ -41,15 +38,13 @@ Gravação de tela do app rodando, com três perguntas que mostram os pilares da
 
 ---
 
-## Checklist do Pitch
+## 💡 Checklist do Pitch
 
-- [ ] Duração máxima de 3 minutos
-- [ ] Problema claramente definido
-- [ ] Solução demonstrada na prática
-- [ ] Diferencial explicado
-- [ ] Áudio e vídeo com boa qualidade
-
-> 💡 Se ficar apertado, cortar uma das três perguntas da demonstração.
+- [x] Duração máxima de 4 minutos
+- [x] Problema claramente definido
+- [x] Solução demonstrada na prática
+- [x] Diferencial explicado
+- [x] Áudio e vídeo com boa qualidade
 
 ---
 
