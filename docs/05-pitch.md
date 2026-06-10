@@ -1,5 +1,7 @@
 # Pitch (4 minutos)
 
+https://github.com/user-attachments/assets/861d2f7b-3d46-442f-a12e-ab6a3e1066fe
+
 ## 🪝 Gancho (0:00 – 0:15)
 
 > "Você sabia que milhões de brasileiros deixam o dinheiro parado na poupança ou caem em armadilhas como consórcios e títulos de capitalização? Não por falta de dinheiro — mas por falta de **conhecimento**. E é exatamente aí que entra o finkAIron."
@@ -48,6 +50,13 @@ Gravação de tela do app rodando, com três perguntas que mostram os pilares da
 
 ---
 
-## Link do Vídeo
+## 🤝 Autor(es) do Projeto 
 
-[Pitch](https://github.com/PatriciaCorreiaSI/dio-lab-bia-do-futuro/blob/main/assets/Pitch.mp4)
+**Patricia Correia** com co-produção do **NotebookLM** e **Claude Code**
+
+
+
+
+
+
+
