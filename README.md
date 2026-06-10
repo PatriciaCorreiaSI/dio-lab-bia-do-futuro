@@ -4,11 +4,11 @@
 > ensinar, desmistificar o mercado financeiro e personalizar explicações com base
 > no perfil, nas transações e no histórico de atendimento de cada cliente.
 
+https://github.com/user-attachments/assets/1c57b4f2-c52d-469e-a6dc-b0b3e1329bce
+
 Construído com **Streamlit** (interface) + **Google Gemini** (LLM via API), o projeto
 nasceu do desafio **[Bia do Futuro](https://github.com/PatriciaCorreiaSI/dio-lab-bia-do-futuro)**
 da **DIO** em parceria com o **Bradesco** e foi desenvolvido do conceito ao protótipo funcional.
-
-<img align="center" src="./assets/captura de tela finkAIron.png" alt="finkAIron" />
 
 ---
 
